@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Stock Price Simulation</title>
+<style>
+body {
+  font-family: sans-serif;
+  text-align: center;
+}
+</style>
+</head>
+<body>
+<h1>Stock Price Simulation</h1>
+<div id="price-display"></div>
+
+<script>
+async function simulateStockPrice() {
+  let currentPrice = 100; 
+  const displayElement = document.getElementById('price-display');
+
+  for (let i = 0; i < 5; i++) { 
+    const priceChange = Math.floor(Math.random() * 3) - 1; 
+    currentPrice += priceChange; 
+    displayElement.textContent = `Stock Price: ${currentPrice.toFixed(2)}`; 
+    await new Promise(resolve => setTimeout(resolve, 3000)); // Pause for 3 seconds
+  }
+
+  console.log("Simulation complete."); 
+}
+
+simulateStockPrice();
+</script>
+
+</body>
+</html>

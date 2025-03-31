@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="Online, Shopping">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IECART's Shopping</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        form {
+            max-width: 500px;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input, select, textarea {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+        }
+        .radio-group, .checkbox-group {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+        }
+        .radio-group label, .checkbox-group label {
+            display: inline-block;
+            margin-right: 10px;
+        }
+        button {
+            padding: 10px 15px;
+            color: #fff;
+            background-color: #007BFF;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+        button[type="reset"] {
+            background-color: #6c757d;
+        }
+        button:hover {
+            opacity: 0.9;
+        }
+        footer {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 0.9em;
+        }
+        footer nav a {
+            margin: 0 5px;
+            text-decoration: none;
+        }
+    </style>
+
+</head>
+<body>
+    <header>
+        <h1 style="text-align: center;">Sign Up!</h1>
+    </header>
+    <main> 
+        <form action="/success" method="get">
+            <label for="username">Username:</label>
+            <input type="text" id="username" placeholder="Enter your username" required spellcheck="true" contenteditable>
+
+            <label for="email_id">Email ID:</label>
+            <input type="email" id="email_id" placeholder="Enter your email ID" required spellcheck="true">
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" placeholder="Enter your password" required>
+
+            <label>Gender:</label>
+            <div class="radio-group">
+                <label for="male"><input type="radio" id="male" name="gender" value="M"> Male</label>
+                <label for="female"><input type="radio" id="female" name="gender" value="F"> Female</label>
+            </div>
+
+            <label for="dob">DOB:</label>
+            <input type="date" id="dob" required>
+
+            <label for="phone_no">Phone number:</label>
+            <input type="tel" id="phone_no" placeholder="Enter your contact number" pattern="\+?\d{10,15}" required spellcheck="false">
+
+            <label for="country">Country:</label>
+            <select id="country" placeholder="Select your country">
+                <option value="India">India</option>
+                <option value="USA">USA</option>
+                <option value="UK">UK</option>
+                <option value="Canada">Canada</option>
+                <option value="Belgium">Belgium</option>
+                <option value="France">France</option>
+            </select>
+
+            <label>Languages Known:</label>
+            <div class="checkbox-group">
+                <label for="english"><input type="checkbox" name="language" id="english" value="English" checked> English</label>
+                <label for="hindi"><input type="checkbox" name="language" id="hindi" value="Hindi"> Hindi</label>
+                <label for="french"><input type="checkbox" name="language" id="french" value="French"> French</label>
+            </div>
+
+            <label for="pic">Profile pic:</label>
+            <input type="file" id="pic" required>
+
+            <label for="yourself" dir="ltr">About yourself:</label>
+            <textarea id="yourself" placeholder="Tell us about yourself" contenteditable spellcheck="true"></textarea>
+
+            <div>
+                <button type="submit">Register</button>
+                <button type="reset">Reset</button>
+            </div>
+        </form>
+    </main>
+    <footer>
+        <nav>About Us | Privacy Policy | Contact Us | FAQ | Terms & Conditions</nav>
+        <p>&copy; 2018 | IEKart Electronics</p>
+    </footer>
+    <aside>
+        <p>Like and Connect with us:</p>
+        <a href="#">FB</a> | <a href="#">Twitter</a> | <a href="#">G+</a>
+    </aside>
+</body>
+</html>
+
+
+
+
+
+
+

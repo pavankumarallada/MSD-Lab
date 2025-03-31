@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Employee Details</title>
+  <style>
+    body {
+      font-family: sans-serif;
+    }
+    .container {
+      margin: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>The Details of the Employee are:</h1>
+    <div id="employeeDetails"></div>
+  </div>
+
+  <script>
+    class Person {
+      constructor(name, age) {
+        this.name = name;
+        this.age = age;
+      }
+    }
+
+    class Employee extends Person {
+      constructor(name, age, role, contact) {
+        super(name, age); // Initialize name and age from Person
+        this.role = role;
+        this.contact = contact;
+      }
+
+     getDetails() {
+        return `
+          <p>Name: ${this.name}</p>
+          <p>Age: ${this.age}</p>
+          <p>Role: ${this.role}</p>
+          <p>Contact: ${this.contact}</p>
+        `;
+      }
+    }
+
+    // Create an instance of the Employee class
+    const employee1 = new Employee("Pavan Kumar", 40, "Technical Educator", "123456789");
+
+    // Display employee details in the HTML
+    const employeeDetailsDiv = document.getElementById("employeeDetails");
+    employeeDetailsDiv.innerHTML = employee1.getDetails();
+
+  </script>
+
+</body>
+</html>

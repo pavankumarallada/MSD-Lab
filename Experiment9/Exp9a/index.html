@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Samsung Galaxy Note 7</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+
+        .product-container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            gap: 30px;
+        }
+
+        .image-section {
+            text-align: center;
+        }
+
+        .product-image {
+            max-width: 200px;
+            height: auto;
+            margin-bottom: 15px;
+        }
+
+        .details-section {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .color-options {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .color-option-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .color-option {
+            cursor: pointer;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            border: 2px solid #ccc;
+            box-sizing: border-box;
+            margin-bottom: 5px;
+        }
+
+        .color-option.selected {
+            border-color: #007bff; /* Highlight selected color */
+        }
+
+        .color-option[data-color="Gold Platinum"] {
+            background-color: #FFD700; /* Gold color */
+        }
+
+        .color-option[data-color="Pink Gold"] {
+            background-color: #FFC0CB; /* Pink color */
+        }
+
+        .color-option[data-color="Silver Titanium"] {
+            background-color: #D3D3D3; /* Silver color */
+        }
+
+        .color-name {
+            font-size: 0.8em;
+            color: #777;
+            text-align: center;
+            margin-bottom: 2px;
+        }
+
+        .color-price {
+            font-size: 0.9em;
+            color: #555;
+            font-weight: normal; /* Default font weight */
+            text-align: center; /* Center the price text */
+        }
+
+        .color-price.selected-price {
+            font-weight: bold; /* Bold for selected price */
+        }
+
+        .product-description {
+            margin-bottom: 20px;
+        }
+
+        .actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .add-to-cart {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .back-button {
+            background-color: #f0f0f0;
+            color: #333;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="product-container">
+        <div class="image-section">
+            <img class="product-image" src="./mobile1.jpg" alt="Samsung Galaxy Note 7">
+            <h2>Samsung Galaxy Note 7</h2>
+            <p>Price: $699</p>
+            <p>Status: Available</p>
+            <p>Discount: 15%</p>
+        </div>
+        <div class="details-section">
+            <div class="color-options">
+                <div class="color-option-container">
+                    <div class="color-option" data-color="Gold Platinum" data-price="699"></div>
+                    <div class="color-name" data-color-display="Gold Platinum">Gold Platinum</div>
+                    <div class="color-price" data-color-display="Gold Platinum">$699</div>
+                </div>
+                <div class="color-option-container">
+                    <div class="color-option" data-color="Pink Gold" data-price="650"></div>
+                    <div class="color-name" data-color-display="Pink Gold">Pink Gold</div>
+                    <div class="color-price" data-color-display="Pink Gold">$650</div>
+                </div>
+                <div class="color-option-container">
+                    <div class="color-option" data-color="Silver Titanium" data-price="712"></div>
+                    <div class="color-name" data-color-display="Silver Titanium">Silver Titanium</div>
+                    <div class="color-price" data-color-display="Silver Titanium">$712</div>
+                </div>
+            </div>
+            <div class="product-description">
+                Samsung Galaxy Note 7 is a stylish mobile you can ever have. It has 64 GB memory.
+            </div>
+            <div class="actions">
+                <button class="add-to-cart">Add to Cart</button>
+                <button class="back-button">Back</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.ts"></script>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!--Write JavaScript code to do online booking of theatre tickets and calculate the total price, considering 
+the price per ticket as $9. Also, apply a festive season discount of 10% and calculate the discounted amount. --> 
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Ticket Booking</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        input, button {
+            padding: 10px;
+            margin: 10px;
+            font-size: 16px;
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 18px;
+            color: green;
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>Online Movie Ticket Booking</h1>
+    <div id="form">
+    <p>Price per ticket: &dollar;9</p>
+    <label for="tickets">Enter the number of tickets:</label>
+    <input type="number" id="tickets" placeholder="Number of tickets" min="1">
+    <button onclick="calculateTotal()">Book Tickets</button>
+    </div>
+    <div class="result">
+        <p id="totaltickets"></p>
+        <p id="totalPrice"></p>
+        <p id="discount"></p>
+        <p id="discountedPrice"></p>
+    </div>
+
+    <script>
+        // Function to calculate total price and discounted price
+        function calculateTotal() {
+            const pricePerTicket = 9; // Price of one ticket
+            const discountRate = 0.10; // 10% discount
+
+            // Get the number of tickets from user input
+            const tickets = parseInt(document.getElementById("tickets").value);
+
+            // Validate the input
+            if (isNaN(tickets) || tickets <= 0) {
+                document.getElementById("totalPrice").textContent = "Please enter a valid number of tickets.";
+                document.getElementById("discountedPrice").textContent = "";
+                return;
+            }
+
+            // Calculate the total price and discounted price
+            const totalPrice = tickets * pricePerTicket;
+            const discount = totalPrice * discountRate;
+            const discountedPrice = totalPrice - discount;
+
+            document.getElementById("form").classList.add("hidden");
+
+            // Display the results
+            document.getElementById("totaltickets").textContent = `Total number of seats booked: ${tickets}`;
+            document.getElementById("totalPrice").textContent = `Total Cost of ${tickets} Tickets (before discount): $. ${totalPrice}`;
+            document.getElementById("discount").textContent = `Festive season discount is:10%`;
+            document.getElementById("discountedPrice").textContent = `Total cost after 10% discount: $. ${discountedPrice.toFixed(2)}`;
+        }
+    </script>
+</body>
+</html>

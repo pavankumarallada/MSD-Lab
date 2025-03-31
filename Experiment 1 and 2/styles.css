@@ -1,0 +1,68 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    display: flex; /* Use flexbox for the entire body */
+    flex-direction: column; /* Set main axis to vertical */
+}
+
+header {
+    background-color: green;
+    padding: 10px;
+    text-align: center;
+    color: white;
+}
+
+nav {
+    background-color:orange;
+    
+}
+
+nav a {
+    float: left;
+    display:block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.content {
+    display: flex; /* Use flexbox for main content */
+    flex-grow: 1; /* Allow main content to grow to fill remaining space */
+}
+
+
+
+.sidebar {
+    width: 200px;
+    background-color: #f4f4f4;
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+    height: calc(100vh - 140px); /* Adjust this value as needed */
+}
+.maincontent {
+    flex: 1; /* Allow main content to grow to fill remaining space */
+    padding: 20px;
+}
+
+ul{
+    list-style-type: none; 
+    padding: 0;
+}
+
+ul li{
+    padding: 8px 0;
+}
+footer {
+    background-color: green;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+footer a{
+    color:white;
+}

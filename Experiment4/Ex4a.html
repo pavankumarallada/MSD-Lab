@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Theatre Ticket Booking</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      background-color: #f0f0f0;
+    }
+    .booking-form {
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      width: 300px;
+    }
+    .booking-form input {
+      width: 80%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    .booking-form button {
+      padding: 10px 20px;
+      background-color: #28a745;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .booking-form button:hover {
+      background-color: #218838;
+    }
+    .result {
+      margin-top: 20px;
+      font-size: 1.2em;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+  <div class="booking-form">
+    <h2>Theatre Ticket Booking</h2>
+    <label for="seats">Enter number of seats to book:</label>
+    <input type="number" id="seats" placeholder="Number of seats" min="1" max="4">
+    <button onclick="bookTickets()">Book Tickets</button>
+    <div class="result" id="result"></div>
+  </div>
+
+  <script>
+    // Function to calculate discount
+    const calculateDiscount = (seats) => {
+      const ticketPrice = 9;
+      const discounts = [5, 7, 9, 11]; // Discounts for 1st, 2nd, 3rd, and 4th tickets
+
+      let totalDiscount = 0;
+      for (let i = 0; i < seats; i++) {
+        const discount = discounts[i] || 0; // Apply discount for each ticket
+        totalDiscount += ticketPrice * (discount / 100);
+      }
+      return totalDiscount;
+    };
+
+    // Function to calculate total cost
+    const calculateCost = (seats) => {
+      const ticketPrice = 9;
+      if (seats > 4) return "Only 4 tickets are available. Booking not allowed for more than 4 seats.";
+
+      const discount = calculateDiscount(seats);
+      const totalPrice = seats * ticketPrice;
+      const finalPrice = totalPrice - discount;
+
+      return `Total cost for ${seats} ticket(s) after applying discounts is $${finalPrice.toFixed(2)}`;
+    };
+
+    // Main function to handle booking
+    const bookTickets = () => {
+      const seatsInput = document.getElementById("seats");
+      const resultDiv = document.getElementById("result");
+      const seats = parseInt(seatsInput.value, 10);
+
+      if (!seats || seats < 1) {
+        resultDiv.textContent = "Please enter a valid number of seats.";
+        return;
+      }
+
+      const message = calculateCost(seats);
+      resultDiv.textContent = message;
+    };
+  </script>
+</body>
+</html>

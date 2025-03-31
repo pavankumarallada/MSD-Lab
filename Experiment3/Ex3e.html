@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Theatre Ticket Booking</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        input, button {
+            padding: 10px;
+            margin: 10px;
+            font-size: 16px;
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 18px;
+            color: green;
+            text-align: center;
+            display: inline-block;
+            white-space: pre-line; /* Allows newlines to display as line breaks */
+        }
+        .error {
+            color: red;
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>Theatre Ticket Booking</h1>
+    <div id="form">
+        <p>Price per ticket: $9</p>
+        <label for="seats">Enter the number of seats to book:</label>
+        <input type="number" id="seats" placeholder="Number of seats" min="1">
+        <button onclick="bookTickets()">Book Tickets</button>
+    </div>
+    <div class="result">
+        <p id="breakdown"></p>
+        <p id="totalPrice"></p>
+        <p id="errorMessage" class="error"></p>
+    </div>
+
+    <script>
+        function bookTickets() {
+            const costPerTicket = 9; // Base cost per ticket
+            const discountRates = [5, 7, 9, 11]; // Discounts for customer1, customer2, etc.
+            const seats = parseInt(document.getElementById("seats").value);
+
+            // Clear previous messages
+            document.getElementById("breakdown").textContent = "";
+            document.getElementById("totalPrice").textContent = "";
+            document.getElementById("errorMessage").textContent = "";
+
+            document.getElementById("form").classList.add("hidden");
+
+            // Validate input
+            if (isNaN(seats) || seats <= 0) {
+                document.getElementById("errorMessage").textContent = "Please enter a valid number of seats.";
+                document.getElementById("form").classList.remove("hidden");
+                return;
+            }
+
+            // Booking is not allowed for 5 or more seats
+            if (seats >= 5) {
+                document.getElementById("errorMessage").textContent = "Booking is not allowed for 5 or more seats.";
+                document.getElementById("form").classList.remove("hidden");
+                return;
+            }
+
+            // Handle cases with a loop
+            let totalCost = 0;
+            let breakdown = "";
+
+            for (let i = 0; i < seats; i++) {
+                const discount = costPerTicket * discountRates[i] / 100;
+                const price = costPerTicket - discount;
+                breakdown += `Ticket for customer ${i + 1} gets ${discountRates[i]}% discount, cost is: $${price.toFixed(2)}\n`;
+                totalCost += price;
+            }
+
+            const originalCost = seats * costPerTicket; // Original cost without discount
+            const savings = originalCost - totalCost; // Total savings
+
+            // Update the page with results
+            document.getElementById("breakdown").textContent = breakdown;
+            document.getElementById("totalPrice").textContent = `For ${seats} tickets, you need to pay: $${totalCost.toFixed(2)} instead of $${originalCost.toFixed(2)} (You save $${savings.toFixed(2)})`;
+        }
+    </script>
+</body>
+</html>

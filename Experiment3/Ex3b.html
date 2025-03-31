@@ -1,0 +1,58 @@
+<!--
+Write JavaScript code to display the movie details such as movie name, starring, 
+language, and ratings. Initialize the variables with values of appropriate types. Use 
+template literals wherever necessary.
+-->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .movie-details {
+            padding: 20px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+            max-width: 400px;
+            margin: auto;
+        }
+        h2 {
+            color: #333;
+        }
+        p {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="movie-details">
+        <h2>Movie Details</h2>
+        <p id="movieName"></p>
+        <p id="starring"></p>
+        <p id="language"></p>
+        <p id="ratings"></p>
+    </div>
+
+    <script>
+        // Initialize variables with movie details
+        const movieName = "Maya Bazaar";
+        const starring = ["NTR", "ANR", "SVR", "Savitri"];
+        const language = "Telugu";
+        const ratings = 8.8;
+
+        // Use template literals to create the movie details
+        document.getElementById("movieName").textContent = `Movie Name: ${movieName}`;
+        document.getElementById("starring").textContent = `Starring: ${starring.join(", ")}`;
+        document.getElementById("language").textContent = `Language: ${language}`;
+        document.getElementById("ratings").textContent = `Ratings: ${ratings}/10`;
+    </script>
+</body>
+</html>

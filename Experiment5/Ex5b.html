@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Stock Price Simulation</title>
+<style>
+body {
+  font-family: sans-serif;
+  text-align: center;
+}
+</style>
+</head>
+<body>
+<h1>Stock Price Simulation</h1>
+<div id="price-display"></div>
+
+<script>
+let currentPrice = 100; // Initial stock price
+
+function getRandomPriceChange() {
+  const randomChange = Math.floor(Math.random() * 3) - 1; // -1, 0, or 1
+  return randomChange;
+}
+
+function simulateStockPrice() {
+  return new Promise((resolve, reject) => {
+    let count = 0;
+    const intervalId = setInterval(() => {
+      const priceChange = getRandomPriceChange();
+      currentPrice += priceChange; 
+
+      document.getElementById('price-display').textContent = `Stock Price: ${currentPrice.toFixed(2)}`; 
+      count++;
+
+      if (count === 5) {
+        clearInterval(intervalId);
+        resolve();
+      }
+    }, 3000); // Update every 3 seconds
+  });
+}
+
+simulateStockPrice()
+  .then(() => {
+    console.log("Simulation complete.");
+  })
+  .catch((error) => {
+    console.error("Error during simulation:", error);
+  });
+</script>
+
+</body>
+</html>
